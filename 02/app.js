@@ -1,7 +1,5 @@
 var utility = require('utility');
-var express = require('express');
-
-var app = express();
+var app = require('express')();
 
 app.get('/', function(req, res){
   var q = req.query.q;
