@@ -1,4 +1,4 @@
-var ep = require('eventproxy');
+var eventproxy = require('eventproxy');
 var superagent = require('superagent');
 var cheerio = require('cheerio');
 var url = require('url');
@@ -9,8 +9,9 @@ superagent.get(cnodeUrl)
   .end(function(err, res){
     if(err){ return console.error(err); }
 
-    var topicUrls = [];
-    var $ = cheerio.load(res.text);
+    var topicUrls = [],
+        ep = new eventproxy(),
+        $ = cheerio.load(res.text);
     $('#topic_list .topic_title').each(function(k,v){
       var $v=$(v);
       var href = url.resolve(cnodeUrl, $v.attr('href'));
@@ -40,7 +41,7 @@ ep.after('topic_html', topicUrls.length, function(topics){
     topicUrls.forEach(function(v){
       superagent.get(v)
         .end(function(err, res){
-          console.log('fetch ' + v + 'successfully');
+          console.log('fetch ' + v + ' successfully');
           ep.emit('topic_html', [v, res.text]);
         });
     });
