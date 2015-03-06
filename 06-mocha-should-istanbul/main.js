@@ -14,3 +14,5 @@ if (require.main === module) {
   var n = Number(process.argv[2]);
   console.log('fibonacci(' + n + ') is', fibonacci(n));
 }
+
+exports.fibonacci = fibonacci;
