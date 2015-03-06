@@ -8,6 +8,18 @@
   </head>
   <body>
     <div id="mocha"></div>
+<script src='chai.js'></script>
+<script>
+  var fibonacci = function (n) {
+    if (n === 0) {
+      return 0;
+    }
+    if (n === 1) {
+      return 1;
+    }
+    return fibonacci(n-1) + fibonacci(n-2);
+  };
+</script>
     <script src="mocha.js"></script>
     <script>mocha.setup('bdd')</script>
     <script src="tests.js"></script>
