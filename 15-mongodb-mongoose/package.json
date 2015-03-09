@@ -1,0 +1,14 @@
+{
+  "name": "15-mongodb-mongoose",
+  "version": "1.0.0",
+  "description": "",
+  "main": "mongo_official_example.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mongoose": "^3.8.24"
+  }
+}
